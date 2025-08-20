@@ -21,7 +21,7 @@ const AllBiodatas = () => {
     queryKey: ["biodatas", filters, page],
     queryFn: async () => {
       const res = await axios.get(
-        "https://find-my-mate-server.vercel.app/biodatas",
+        // "https://find-my-mate-server.vercel.app/biodatas",
         {
           params: { ...filters, page, limit },
         }
