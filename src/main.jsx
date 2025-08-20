@@ -2,9 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import AuthProvider from "../src/contexts/AuthProvider";
+import AuthProvider from "./contexts/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./index.css"; // Tailwind CSS
+
 
 const queryClient = new QueryClient();
 

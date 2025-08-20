@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AuthContext } from "../contexts/AuthContext.jsx";
+import { AuthContext } from "./AuthContext";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -10,7 +10,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../firebase/firebase.config.js";
+import { auth } from "../firebase/firebase.config";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // Track the current authenticated user
@@ -47,7 +47,6 @@ const AuthProvider = ({ children }) => {
 
   // Function to log out user
   const logout = () => signOut(auth);
-
   const authInfo = {
     user,
     createUser,
@@ -59,9 +58,9 @@ const AuthProvider = ({ children }) => {
     resetPassword,
     logout,
   };
-
-  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
+  return <AuthContext value={authInfo}>{children}</AuthContext>;
 };
 
 export default AuthProvider;
+
 
