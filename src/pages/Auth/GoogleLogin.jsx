@@ -9,7 +9,7 @@ const GoogleLogin = () => {
   const { googleLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from || "/";
+  const from = location.state?.from || "/dashboard/home";
 
   const handleGoogleLogin = async () => {
     try {

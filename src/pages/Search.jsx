@@ -47,7 +47,7 @@ const Search = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white-50 flex flex-col justify-center items-center py-8">
+    <div className="min-h-screen bg-white-50 flex flex-col items-center pt-12">
       {!showResults ? (
         // ADVANCED SEARCH FORM
         <form
@@ -86,9 +86,7 @@ const Search = () => {
             </div>
             <div className="flex gap-2">
               <div>
-                <label className="block text-sm font-semibold mb-2 text-pink-700">
-                  Age
-                </label>
+                <label className="block text-sm font-semibold mb-2 text-pink-700">Age</label>
                 <input
                   type="number"
                   min="18"
@@ -181,9 +179,8 @@ const Search = () => {
           </div>
         </form>
       ) : (
-        // SEARCH RESULTS AND SIMILAR PROFILES
-        <div className="w-full max-w-4xl mt-6 mb-10 space-y-12">
-          {/* Main Search Results */}
+        // SEARCH RESULTS
+        <div className="w-full max-w-4xl mt-6 mb-10 space-y-8">
           {results.map((profile) => (
             <div
               key={profile.id}
@@ -201,9 +198,7 @@ const Search = () => {
                   </svg>
                 </div>
                 <p className="text-xs font-semibold text-pink-700 text-center">
-                  Login to Reveal
-                  <br />
-                  the Image
+                  Login to Reveal<br />the Image
                 </p>
                 <button className="bg-pink-600 hover:bg-pink-700 text-white rounded mt-3 text-sm px-4 py-2">
                   Contact for More details
@@ -212,76 +207,22 @@ const Search = () => {
               <div className="flex-1 ml-0 md:ml-8 mt-4 md:mt-0 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1 text-sm text-pink-900">
                 <div>
                   <span className="font-bold">{profile.name}</span> &nbsp;
-                  <span>
-                    Id : <span className="font-medium">{profile.id}</span>
-                  </span>
+                  <span>Id : <span className="font-medium">{profile.id}</span></span>
                 </div>
-                <div>
-                  Age : <span className="font-medium">{profile.age}</span>
-                </div>
-                <div>
-                  Education : <span className="font-medium">{profile.education}</span>
-                </div>
-                <div>
-                  Height : <span className="font-medium">{profile.height || "-"}</span>
-                </div>
-                <div>
-                  Religion : <span className="font-medium">{profile.religion}</span>
-                </div>
-                <div>
-                  Living Place : <span className="font-medium">{profile.living}</span>
-                </div>
-                <div>
-                  Work : <span className="font-medium">{profile.work}</span>
-                </div>
-                <div>
-                  Sub Caste : <span className="font-medium">{profile.subcaste}</span>
-                </div>
-                <div>
-                  Marital Status : <span className="font-medium">{profile.marital}</span>
-                </div>
-                <div>
-                  Caste : <span className="font-medium">{profile.caste}</span>
-                </div>
-                <div>
-                  Star (Nakshathra) : <span className="font-medium">{profile.star}</span>
-                </div>
-                <div>
-                  Moonsign (Rasi) : <span className="font-medium">{profile.moonsign}</span>
-                </div>
+                <div>Age : <span className="font-medium">{profile.age}</span></div>
+                <div>Education : <span className="font-medium">{profile.education}</span></div>
+                <div>Height : <span className="font-medium">{profile.height || '-'}</span></div>
+                <div>Religion : <span className="font-medium">{profile.religion}</span></div>
+                <div>Living Place : <span className="font-medium">{profile.living}</span></div>
+                <div>Work : <span className="font-medium">{profile.work}</span></div>
+                <div>Sub Caste : <span className="font-medium">{profile.subcaste}</span></div>
+                <div>Marital Status : <span className="font-medium">{profile.marital}</span></div>
+                <div>Caste : <span className="font-medium">{profile.caste}</span></div>
+                <div>Star (Nakshathra) : <span className="font-medium">{profile.star}</span></div>
+                <div>Moonsign (Rasi) : <span className="font-medium">{profile.moonsign}</span></div>
               </div>
             </div>
           ))}
-
-          {/* Similar Profiles Section */}
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-pink-700">Similar Profiles</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {demoResults.slice(0, 2).map((profile) => (
-                <div
-                  key={profile.id}
-                  className="bg-pink-50 rounded-lg shadow p-4 flex flex-col md:flex-row md:items-center"
-                >
-                  <div className="flex-shrink-0 flex flex-col items-center md:w-1/4">
-                    {/* Smaller placeholder avatar */}
-                    <svg width="36" height="36" fill="none" viewBox="0 0 24 24">
-                      <rect width="36" height="36" rx="8" fill="#FAD4D9" />
-                      <g>
-                        <circle cx="12" cy="12" r="6" fill="#FBE9EB" />
-                        <rect x="6" y="18" width="18" height="10" fill="#FADCE1" />
-                      </g>
-                    </svg>
-                  </div>
-                  <div className="flex-1 ml-4">
-                    <div className="font-bold">{profile.name}</div>
-                    <div className="text-sm">Age: {profile.age}</div>
-                    <div className="text-sm">Education: {profile.education}</div>
-                    <div className="text-sm">Star: {profile.star}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       )}
     </div>
@@ -289,4 +230,3 @@ const Search = () => {
 };
 
 export default Search;
-

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { NavLink } from "react-router";
-import { motion } from "motion/react";
+// import { motion } from "motion/react";
+import { motion } from "framer-motion";   
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { MdSearchOff } from "react-icons/md";
 import axios from "axios";
@@ -21,7 +22,7 @@ const AllBiodatas = () => {
     queryKey: ["biodatas", filters, page],
     queryFn: async () => {
       const res = await axios.get(
-        // "https://find-my-mate-server.vercel.app/biodatas",
+        "https://find-my-mate-server.vercel.app/biodatas",
         {
           params: { ...filters, page, limit },
         }
