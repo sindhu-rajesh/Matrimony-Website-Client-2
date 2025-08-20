@@ -17,6 +17,9 @@ import Footer from "../src/components/Footer";
  import QuickRegisterButtons from "./components/QuickRegisterButtons";
  import  Search  from "./pages/Search"
  import PremimumMembership from "./components/PremimumMembership";
+ import EditBiodata from "./pages/Dashboard/User/EditBiodata";
+ import AllBiodatas from "./pages/Biodatas/AllBiodatas";
+ import Forbidden from "./components/Forbidden";
 
 
 
@@ -43,6 +46,8 @@ function App() {
          <Route path="/premimum" element={<PremimumMembership />} /> 
          <Route path="/profile/:id" element={<ProfilePage />} /> 
          <Route path="/dashboard" element={<Dashboard />} />
+         <Route path="/biodatas" element={<EditBiodata />} />
+         <Route path="/forbidden" element={<Forbidden />} />
       </Routes>
       {/* </BrowserRouter> */}
       <QuickRegisterButtons />
