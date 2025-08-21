@@ -25,6 +25,7 @@ import Plans from "../components/Plan";
 import ContactPage from "../pages/ContactPage";
 import AllBiodatas from "../pages/Biodatas/AllBiodatas";
 import BiodataDetails from "../pages/Biodatas/BiodataDetails";
+import PaymentPlans from "../pages/PaymentsPlans";
 
 // ✅ Full route config
 export const AppRoutes = createBrowserRouter([
@@ -76,6 +77,10 @@ export const AppRoutes = createBrowserRouter([
             <BiodataDetails></BiodataDetails>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "payment",
+        element: <PaymentPlans />,
       },
       // {
       //   path: "checkout/:id",

@@ -30,7 +30,7 @@ export default function Payment() {
   const email = "mahes007@yahoo.com";
   
   return (
-    <div className="min-h-screen bg-white py-10 px-4 sm:px-8">
+    <div className="min-h-screen bg-white py-10 px-4 sm:px-8 ">
       <div className="max-w-5xl mx-auto space-y-6">
         {/* Payment Summary Section */}
         <div className="bg-white rounded-2xl shadow-md p-8">
