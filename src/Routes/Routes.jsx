@@ -26,6 +26,7 @@ import ContactPage from "../pages/ContactPage";
 import AllBiodatas from "../pages/Biodatas/AllBiodatas";
 import BiodataDetails from "../pages/Biodatas/BiodataDetails";
 import PaymentPlans from "../pages/PaymentsPlans";
+import ProfilePage from "../pages/ProfilePage";
 
 // ✅ Full route config
 export const AppRoutes = createBrowserRouter([
@@ -77,6 +78,10 @@ export const AppRoutes = createBrowserRouter([
             <BiodataDetails></BiodataDetails>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/profile/:id",
+        element: <ProfilePage />,
       },
       {
         path: "payment",
