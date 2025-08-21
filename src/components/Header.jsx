@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/Matrimonylogo.jpg"; // Adjust the path as needed
+import useAuth from "../hooks/useAuth";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   // Dummy login state, replace with actual auth state or context
   const [isLoggedIn, setIsLoggedIn] = useState(false); // For example purpose
+
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (user) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [user]);
 
   return (
     <header className="bg-gray-100 shadow-md fixed top-0 left-0 w-full z-50">

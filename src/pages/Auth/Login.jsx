@@ -19,7 +19,10 @@ const Login = () => {
     try {
       await login(data.email, data.password);
       Swal.fire("Success", "Logged in successfully!", "success");
-      navigate("/dashboard/home");  // Ensure "/" points to your dashboard route
+      // navigate("/");  // Ensure "/" points to your dashboard route
+      navigate("/");
+      window.location.reload();
+
     } catch (error) {
       Swal.fire("Error", error.message || "Login failed", "error");
     }

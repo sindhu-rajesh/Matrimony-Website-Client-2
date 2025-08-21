@@ -9,7 +9,7 @@ const GoogleLogin = () => {
   const { googleLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from || "/dashboard/home";
+  const from = location.state?.from || "/";
 
   const handleGoogleLogin = async () => {
     try {
@@ -34,8 +34,11 @@ const GoogleLogin = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-
-      navigate(from);
+      if (from === "/") {
+        window.location.reload();
+      } else {
+        navigate(from);
+      }
     } catch (error) {
       console.error("Google login failed:", error);
       Swal.fire({
