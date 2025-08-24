@@ -1,7 +1,8 @@
 import React from "react";
-import { createBrowserRouter } from "react-router-dom";
 
+import { createBrowserRouter } from "react-router";
 import MainLayout from "../layouts/MainLayout";
+// import Home from "../pages/Home/Home";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
@@ -9,7 +10,10 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
 import EditBiodata from "../pages/Dashboard/User/EditBiodata";
 import ViewBiodata from "../pages/Dashboard/User/ViewBiodata";
+// import AllBiodatas from "../pages/Biodatas/AllBiodatas";
+// import BiodataDetails from "../pages/Biodatas/BiodataDetails";
 import FavoritesBiodata from "../pages/Dashboard/User/FavoritesBiodata";
+// import Checkout from "../pages/Dashboard/Payment/Checkout";
 import MyContactRequest from "../pages/Dashboard/User/MyContactRequest";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import ApprovedPremium from "../pages/Dashboard/Admin/ApprovedPremium";
@@ -17,105 +21,84 @@ import ApproveContactRequest from "../pages/Dashboard/Admin/ApproveContactReques
 import Dashboard from "../pages/Dashboard/Dashboard";
 import GotMarried from "../pages/Dashboard/User/GotMarried";
 import AdminSuccessStory from "../pages/Dashboard/Admin/AdminSuccessStory";
+// import Forbidden from "../components/Forbidden";
 import AdminRoute from "./AdminRoute";
-import AboutUs from "../pages/AboutUs";
-import MatchesPage from "../pages/Matchpage";
-import Search from "../pages/Search";
-import Plans from "../components/Plan";
-import ContactPage from "../pages/ContactPage";
-import AllBiodatas from "../pages/Biodatas/AllBiodatas";
-import BiodataDetails from "../pages/Biodatas/BiodataDetails";
-import PaymentPlans from "../pages/PaymentsPlans";
-import ProfilePage from "../pages/ProfilePage";
+// import ErrorPage from "../components/ErrorPage";
+// import AboutUs from "../pages/About/AboutUs";
+// import Contact from "../pages/Contact/Contact";
 
-// ✅ Full route config
+
 export const AppRoutes = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
-    // errorElement: <ErrorPage />, // uncomment if you add error page
+    element: <MainLayout></MainLayout>,
+    // errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        index: true, // default route for "/"
-        element: <LandingPage />,
+        index: true,
+        path: "/",
+        element: <LandingPage></LandingPage>,
       },
       {
         path: "login",
-        element: <Login />,
+        element: <Login></Login>,
       },
       {
         path: "register",
-        element: <Register />,
-      },
-      {
-        path: "about",
-        element: <AboutUs />,
-      },
-      {
-        path: "matches",
-        element: <MatchesPage />,
-      },
-      {
-        path: "search",
-        element: <Search />,
-      },
-      {
-        path: "plans",
-        element: <Plans />,
-      },
-      {
-        path: "contact",
-        element: <ContactPage />,
-      },
-      {
-        path: "/biodatas",
-        element: <AllBiodatas></AllBiodatas>,
-      },
-      {
-        path: "/biodata-details/:id",
-        element: (
-          <PrivateRoute>
-            <BiodataDetails></BiodataDetails>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/profile/:id",
-        element: <ProfilePage />,
-      },
-      {
-        path: "payment",
-        element: <PaymentPlans />,
+        element: <Register></Register>,
       },
       // {
-      //   path: "checkout/:id",
+      //   path: "forbidden",
+      //   element: <Forbidden></Forbidden>,
+      // },
+      // {
+      //   path: "about",
+      //   element: <AboutUs></AboutUs>,
+      // },
+      // {
+      //   path: "contact",
+      //   element: <Contact></Contact>,
+      // },
+      // {
+      //   path: "/biodatas",
+      //   element: <AllBiodatas></AllBiodatas>,
+      // },
+      // {
+      //   path: "/biodata-details/:id",
       //   element: (
       //     <PrivateRoute>
-      //       <Checkout />
+      //       <BiodataDetails></BiodataDetails>
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // {
+      //   path: "/checkout/:id",
+      //   element: (
+      //     <PrivateRoute>
+      //       <Checkout></Checkout>
       //     </PrivateRoute>
       //   ),
       // },
     ],
   },
-
-  // Dashboard routes
   {
     path: "/dashboard",
     element: (
       <PrivateRoute>
-        <DashboardLayout />
+        <DashboardLayout></DashboardLayout>
       </PrivateRoute>
     ),
     children: [
+      // admin routes
       {
         path: "home",
-        element: <Dashboard />,
+        element: <Dashboard></Dashboard>,
       },
       {
         path: "manage-users",
         element: (
           <AdminRoute>
-            <ManageUsers />
+            <ManageUsers></ManageUsers>
           </AdminRoute>
         ),
       },
@@ -123,7 +106,7 @@ export const AppRoutes = createBrowserRouter([
         path: "approved-premium",
         element: (
           <AdminRoute>
-            <ApprovedPremium />
+            <ApprovedPremium></ApprovedPremium>
           </AdminRoute>
         ),
       },
@@ -131,7 +114,7 @@ export const AppRoutes = createBrowserRouter([
         path: "approved-contact-request",
         element: (
           <AdminRoute>
-            <ApproveContactRequest />
+            <ApproveContactRequest></ApproveContactRequest>
           </AdminRoute>
         ),
       },
@@ -139,32 +122,32 @@ export const AppRoutes = createBrowserRouter([
         path: "success-story",
         element: (
           <AdminRoute>
-            <AdminSuccessStory />
+            <AdminSuccessStory></AdminSuccessStory>
           </AdminRoute>
         ),
       },
-
-      // User routes
+      // user routes
       {
         path: "edit-biodata",
-        element: <EditBiodata />,
+        element: <EditBiodata></EditBiodata>,
       },
       {
         path: "view-biodata",
-        element: <ViewBiodata />,
+        element: <ViewBiodata></ViewBiodata>,
       },
       {
         path: "my-contact-requests",
-        element: <MyContactRequest />,
+        element: <MyContactRequest></MyContactRequest>,
       },
       {
         path: "favourites",
-        element: <FavoritesBiodata />,
+        element: <FavoritesBiodata></FavoritesBiodata>,
       },
       {
         path: "got-married",
-        element: <GotMarried />,
+        element: <GotMarried></GotMarried>,
       },
+      
     ],
   },
 ]);

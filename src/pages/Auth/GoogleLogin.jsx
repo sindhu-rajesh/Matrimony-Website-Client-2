@@ -34,8 +34,11 @@ const GoogleLogin = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-
-      navigate(from);
+      if (from === "/") {
+        window.location.reload();
+      } else {
+        navigate(from);
+      }
     } catch (error) {
       console.error("Google login failed:", error);
       Swal.fire({

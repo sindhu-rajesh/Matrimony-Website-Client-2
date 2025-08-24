@@ -6,8 +6,8 @@ import Footer from "../components/Footer";
 const MainLayout = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      <div className=" min-h-screen">
+      <Header></Header>
+      <div className=" min-h-screen mt-[85px]">
         <Outlet></Outlet>
       </div>
       <Footer></Footer>

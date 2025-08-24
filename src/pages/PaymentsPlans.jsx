@@ -28,10 +28,10 @@ export default function Payment() {
   const planAmount = location.state?.planPrice || 1000;
   const phone = "9865765747";
   const email = "mahes007@yahoo.com";
-
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-10 px-4">
-      <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="min-h-screen bg-white py-10 px-4 sm:px-8 ">
+      <div className="max-w-5xl mx-auto space-y-6">
         {/* Payment Summary Section */}
         <div className="bg-white rounded-2xl shadow-md p-8">
           <h2 className="text-2xl font-bold text-pink-600 mb-6 text-center">Payment Summary</h2>
@@ -69,28 +69,26 @@ export default function Payment() {
         {/* UPI & Bank Details Section */}
         <div className="grid gap-6 md:grid-cols-3">
           {/* UPI Details */}
-          <div className="bg-white rounded-2xl shadow-md p-6 border-t-4 border-pink-500 flex flex-col justify-between">
-            <h3 className="text-pink-600 rounded-t-lg font-semibold text-lg mb-4 text-center">
+          <div className="bg-white rounded-2xl shadow-md p-6 border-t-4 border-pink-500">
+            <h3 className="text-pink-600 rounded-t-lg px-4 py-2 font-semibold text-lg mb-4 text-center">
               UPI Details
             </h3>
-            <div>
-              <div className="flex items-center gap-2 text-gray-800 mb-3">
-                <FaGooglePay className="text-pink-500 text-xl" />
-                G-Pay Number <span className="font-bold">8973040487</span>
-              </div>
-              <div className="flex items-center gap-2 text-gray-800 mb-3">
-                <SiPaytm className="text-pink-400 text-xl" />
-                Paytm Number <span className="font-bold">8778626571</span>
-              </div>
-              <div className="flex items-center gap-2 text-gray-800 mt-4">
-                <FaWhatsapp className="text-green-500 text-xl" />
-                Payment Screenshot Whatsapp Number <span className="font-bold">8973040487</span>
-              </div>
+            <div className="flex items-center gap-2 text-gray-800 mb-3">
+              <FaGooglePay className="text-pink-500 text-xl" />
+              G-Pay Number <span className="font-bold">8973040487</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-800 mb-3">
+              <SiPaytm className="text-pink-400 text-xl" />
+              Paytm Number <span className="font-bold">8778626571</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-800 mt-4">
+              <FaWhatsapp className="text-green-500 text-xl" />
+              Payment Screenshot Whatsapp Number <span className="font-bold">8973040487</span>
             </div>
           </div>
-          {/* Bank Details */}
+          {/* Bank Details - Pink accent line at top, white background */}
           {bankData.map((bank) => (
-            <div key={bank.bank} className="bg-white rounded-2xl shadow-md p-6 border-t-4 border-pink-500 flex flex-col justify-between relative">
+            <div key={bank.bank} className="bg-white rounded-2xl shadow-md p-6 border-t-4 border-pink-500 relative">
               <div className="flex justify-between items-center px-4 py-2 rounded-t-lg mb-4 font-semibold">
                 <span className="text-pink-600 text-lg">{bank.bank}</span>
                 {bank.qr && (
@@ -123,22 +121,13 @@ export default function Payment() {
               </div>
               {bank.qr && (
                 <div className="mt-3 text-right">
-                  <a
-                    href="#"
-                    className="text-pink-600 text-sm font-semibold underline hover:text-pink-400 transition"
-                  >
+                  <a href="#" className="text-pink-600 text-sm font-semibold underline hover:text-pink-400 transition">
                     View QR
                   </a>
                 </div>
               )}
             </div>
           ))}
-        </div>
-        {/* Note Section */}
-        <div className="mt-8 text-center">
-          <div className="bg-yellow-100 border-l-4 border-yellow-400 p-4 rounded-lg text-gray-900 inline-block">
-            <strong>Note:</strong> After completing the payment, kindly send a screenshot of your transaction to our WhatsApp number <span className="font-semibold text-green-600">8973040487</span>. Your access will be activated only after payment verification.
-          </div>
         </div>
       </div>
     </div>

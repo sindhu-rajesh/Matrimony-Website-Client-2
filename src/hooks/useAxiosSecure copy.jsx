@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
+// import { useNavigate } from "react-router";
 import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
@@ -12,12 +13,10 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("User token:", user?.accessToken);
-
+    console.log(user.accessToken,'user')
     const requestInterceptor = axiosSecure.interceptors.request.use(
       (config) => {
         if (user?.accessToken) {
-          // ✅ Capital A
           config.headers.Authorization = `Bearer ${user.accessToken}`;
         }
         return config;
@@ -30,7 +29,7 @@ const useAxiosSecure = () => {
       (error) => {
         const status = error.response?.status;
         if (status === 403) {
-          console.error("Forbidden – token may be invalid or missing");
+          // navigate("/forbidden");
         } else if (status === 401) {
           logOut()
             .then(() => {
@@ -52,3 +51,4 @@ const useAxiosSecure = () => {
 };
 
 export default useAxiosSecure;
+
